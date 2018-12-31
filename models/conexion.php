@@ -4,8 +4,12 @@ class Conexion{
 
 	public function conectar(){
 
-		$link = new PDO("mysql:host=localhost;dbname=cursophp","root","");
-		return $link;
+		$conexion= new PDO("mysql:host=localhost;dbname=cursophp","Alejandro","3424");
+		$conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		$conexion->exec("set names utf8");
+		
+		
+		return $conexion;
 
 	}
 
