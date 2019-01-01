@@ -78,13 +78,22 @@ class MvcController{
 
 		if(isset($_POST["usuarioRegistro"])){
 
+			$usuario=$_POST["usuarioRegistro"];
+			$password=$_POST['passwordRegistro'];
+			$email=$_POST["emailRegistro"];
 
+			$patron="/^[a-zA-Z0-9]+$/";
+			$patron_email="/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/";
+			
+			if(preg_match($patron,$usuario) && preg_match($patron,$password) && preg_match($patron_email,$email)){
+				
+				$encriptar=crypt($password,'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+				
+			$datosController = array( "usuario"=>$usuario, 
 
-			$datosController = array( "usuario"=>$_POST["usuarioRegistro"], 
+								      "password"=>$encriptar,
 
-								      "password"=>$_POST["passwordRegistro"],
-
-								      "email"=>$_POST["emailRegistro"]);
+								      "email"=>$email);
 
 
 
@@ -112,7 +121,7 @@ class MvcController{
 
 			}
 
-
+			}
 
 		}
 
@@ -132,11 +141,16 @@ class MvcController{
 
 		if(isset($_POST["usuarioIngreso"])){
 
+			$usuario=$_POST["usuarioIngreso"];
+			$password=$_POST['passwordIngreso'];
+			
+			if(!empty($usuario) && !empty($password)){
 
+				$encriptar=crypt($password,'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+				
+			$datosController = array( "usuario"=>$usuario, 
 
-			$datosController = array( "usuario"=>$_POST["usuarioIngreso"], 
-
-								      "password"=>$_POST["passwordIngreso"]);
+								      "password"=>$encriptar);
 
 
 
@@ -174,7 +188,7 @@ class MvcController{
 
 			}
 
-
+			}
 
 		}	
 
@@ -203,12 +217,14 @@ class MvcController{
 
 
 		foreach($respuesta as $row => $item){
+			
+			$encriptar=crypt($item["password"],'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
 		echo'<tr>
 
 				<td>'.$item["usuario"].'</td>
 
-				<td>'.$item["password"].'</td>
+				<td>'.$encriptar.'</td>
 
 				<td>'.$item["email"].'</td>
 
@@ -242,21 +258,24 @@ class MvcController{
 
 		$respuesta = Datos::editarUsuarioModel($datosController, "usuarios");
 
+		$encriptar=crypt($respuesta["password"],'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+		echo'
+			
+			
+			<input type="hidden" value="'.$respuesta["id"].'" name="idEditar">
 
 
-		echo'<input type="hidden" value="'.$respuesta["id"].'" name="idEditar">
+			 <label for="usuarioEditar">Nombre usuario</label>
+			 <input type="text" value="'.$respuesta["usuario"].'" name="usuarioEditar" id="usuarioEditar" placeholder="Máximo 10 caracteres" required>
 
 
-
-			 <input type="text" value="'.$respuesta["usuario"].'" name="usuarioEditar" required>
-
-
-
-			 <input type="text" value="'.$respuesta["password"].'" name="passwordEditar" required>
+			 <label for="passwordEditar">Contraseña</label>
+			 <input type="text" value="'.$encriptar.'" name="passwordEditar" id="passwordEditar" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Mínimo 8 caracteres, incluir número(s) y una mayúscula" required>
 
 
-
-			 <input type="email" value="'.$respuesta["email"].'" name="emailEditar" required>
+			 <label for="emailEditar">Correo electrónico</label>
+			 <input type="email" value="'.$respuesta["email"].'" name="emailEditar" id="emailEditar" required>
 
 
 
@@ -278,15 +297,24 @@ class MvcController{
 
 		if(isset($_POST["usuarioEditar"])){
 
+			$usuario=$_POST["usuarioEditar"];
+			$password=$_POST['passwordEditar'];
+			$email=$_POST["emailEditar"];
 
+			$patron="/^[a-zA-Z0-9]+$/";
+			$patron_email="/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/";
+			
+			if(preg_match($patron,$usuario) && preg_match($patron,$password) && preg_match($patron_email,$email)){
 
+				$encriptar=crypt($password,'$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+				
 			$datosController = array( "id"=>$_POST["idEditar"],
 
-							          "usuario"=>$_POST["usuarioEditar"],
+							          "usuario"=>$usuario,
 
-				                      "password"=>$_POST["passwordEditar"],
+				                      "password"=>$encriptar,
 
-				                      "email"=>$_POST["emailEditar"]);
+				                      "email"=>$email);
 
 			
 
@@ -317,7 +345,7 @@ class MvcController{
 			}
 
 
-
+			}
 		}
 
 	

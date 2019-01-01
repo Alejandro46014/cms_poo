@@ -14,7 +14,7 @@ if(!$_SESSION["validar"]){
 
 <h1>EDITAR USUARIO</h1>
 
-<form method="post">
+<form method="post" onSubmit="return validarEditar()">
 	
 	<?php
 

@@ -223,3 +223,168 @@ function validarIngreso(){
 
 /*=====  FIN VALIDAR INGRESO  ======*/
 
+/*=============================================
+
+VALIDAR EDITAR
+
+=============================================*/
+
+function validarEditar(){
+
+
+
+	var usuario = document.querySelector("#usuarioEditar").value;	
+
+
+
+	var password = document.querySelector("#passwordEditar").value;
+
+
+
+	var email = document.querySelector("#emailEditar").value;
+
+
+
+
+
+	/* VALIDAR USUARIO */
+
+
+
+	if(usuario != ""){
+
+
+
+		var caracteres = usuario.length;
+
+		var expresion = /^[a-zA-Z0-9]*$/;
+
+
+
+		if(caracteres > 10){
+
+
+
+			document.querySelector("label[for='usuarioEditar']").innerHTML += "<br><spam>Escriba por favor menos de 10 caracteres.</spam>";
+
+
+
+			return false;
+
+		}
+
+
+
+		if(!expresion.test(usuario)){
+
+
+
+			document.querySelector("label[for='usuarioeditar']").innerHTML += "<br><spam>No escriba caracteres especiales.</spam>";
+
+
+
+			return false;
+
+
+
+		}
+
+
+
+	}
+
+
+
+	/* VALIDAR PASSWORD */
+
+
+
+	if(password != ""){
+
+
+
+		var caracteres = password.length;
+
+		var expresion = /^[a-zA-Z0-9]*$/;
+
+
+
+		if(caracteres < 8){
+
+
+
+			document.querySelector("label[for='passwordEditar']").innerHTML += "<br><spam>Escriba por favor un mínimo de 8 caracteres.</spam>";
+
+
+
+			return false;
+
+		}
+
+
+
+		if(!expresion.test(password)){
+
+
+
+			document.querySelector("label[for='usuarioEditar']").innerHTML += "<br><spam>No escriba caracteres especiales.</spam>";
+
+
+
+			return false;
+
+
+
+		}
+
+
+
+	}
+
+
+
+	/* VALIDAR EMAIL*/
+
+
+
+	if(email != ""){
+
+
+
+		var expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+
+
+
+		if(!expresion.test(email)){
+
+
+
+			document.querySelector("label[for='emailEditar']").innerHTML += "<br><spam>Escriba correctamente el Email.</spam>";
+
+
+
+			return false;
+
+
+
+		}
+
+
+
+	}
+
+
+
+	
+
+	
+
+return true;
+
+
+
+}
+
+/*=====  FIN VALIDAR EDITAR  ======*/
+
+
