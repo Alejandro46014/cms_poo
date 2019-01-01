@@ -20,7 +20,7 @@ function validarRegistro(){
 
 
 
-	var terminos = document.querySelector("#terminos").checked;
+	var terminos = document.querySelector("#registro").checked;
 
 
 
@@ -156,7 +156,7 @@ function validarRegistro(){
 
 
 
-	if(!terminos){
+	if(!registro){
 
 
 
