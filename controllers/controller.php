@@ -156,11 +156,18 @@ class MvcController{
 
 			$respuesta = Datos::ingresoUsuarioModel($datosController, "usuarios");
 
+			$intentos=$respuesta['intentos'];
+			$maximoIntentos=2;
+				
+				if($intentos < $maximoIntentos){
 
+			if($respuesta["usuario"] == $_POST["usuarioIngreso"] && $respuesta["password"] == $encriptar){
 
-			if($respuesta["usuario"] == $_POST["usuarioIngreso"] && $respuesta["password"] == $_POST["passwordIngreso"]){
-
-
+				$intentos=0;
+					$datosController=array("usuarioActual"=>$usuario,
+									  "actualizarIntentos"=>$intentos);
+				
+				$respuestaActualizarIntentos= Datos::intentosUsuarioModel($datosController,"usuarios");
 
 				session_start();
 
@@ -180,13 +187,27 @@ class MvcController{
 
 			else{
 
-
+				++$intentos;
+				$datosController=array("usuarioActual"=>$usuario,
+									  "actualizarIntentos"=>$intentos);
+				
+				$respuestaActualizarIntentos= Datos::intentosUsuarioModel($datosController,"usuarios");
 
 				header("location:index.php?action=fallo");
 
 
 
 			}
+				}else{
+					
+					$intentos=0;
+					$datosController=array("usuarioActual"=>$usuario,
+									  "actualizarIntentos"=>$intentos);
+				
+				$respuestaActualizarIntentos= Datos::intentosUsuarioModel($datosController,"usuarios");
+
+				header("location:index.php?action=fallo3intentos");
+				}
 
 			}
 

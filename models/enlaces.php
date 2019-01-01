@@ -28,6 +28,11 @@ class Paginas{
 			$module =  "views/modules/ingresar.php";
 		
 		}
+		else if($enlaces == "fallo3intentos"){
+
+			$module =  "views/modules/ingresar.php";
+		
+		}
 
 		else if($enlaces == "cambio"){
 

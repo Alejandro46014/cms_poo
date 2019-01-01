@@ -24,6 +24,11 @@ if(isset($_GET["action"])){
 		echo "Fallo al ingresar";
 	
 	}
+	if($_GET["action"] == "fallo3intentos"){
+
+		echo "<spam>Has fallado 3 veces al ingresar tu contraseña, por favor rellene el capchat.</spam>";
+	
+	}
 
 }
 
