@@ -38,11 +38,11 @@ function validarRegistro(){
 
 
 
-		if(caracteres > 6){
+		if(caracteres > 10){
 
 
 
-			document.querySelector("label[for='usuarioRegistro']").innerHTML += "<br>Escriba por favor menos de 6 caracteres.";
+			document.querySelector("label[for='usuarioRegistro']").innerHTML += "<br>Escriba por favor menos de 10 caracteres.";
 
 
 
@@ -86,11 +86,11 @@ function validarRegistro(){
 
 
 
-		if(caracteres < 6){
+		if(caracteres < 8){
 
 
 
-			document.querySelector("label[for='passwordRegistro']").innerHTML += "<br>Escriba por favor más de 6 caracteres.";
+			document.querySelector("label[for='passwordRegistro']").innerHTML += "<br>Escriba por favor un mínimo de 8 caracteres.";
 
 
 

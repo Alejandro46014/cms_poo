@@ -1,14 +1,16 @@
 <h1>REGISTRO DE USUARIO</h1>
 
-<form method="post">
+<form method="post" onsubmit="return validarRegistro()">
+	<label for="usuarioRegistro">Nombre usuario</label>
+	<input type="text" placeholder="Máximo 10 caracteres" name="usuarioRegistro" id="usuarioRegistro" required>
 	
-	<input type="text" placeholder="Usuario" name="usuarioRegistro" required>
+	<label for="passwordRegistro">Contraseña</label>
+	<input type="password" placeholder="Mínimo 8 caracteres, incluir número(s) y una mayúscula" name="passwordRegistro" id="passwordRegistro" required>
+	
+	<label for="emailRegistro">Correo electrónico</label>
+	<input type="email" placeholder="Escriba su correo electrónico" name="emailRegistro" id="emailRegistro" required>
 
-	<input type="password" placeholder="Contraseña" name="passwordRegistro" required>
-
-	<input type="email" placeholder="Email" name="emailRegistro" required>
-
-	<input type="submit" value="Enviar">
+	<input type="submit" value="Enviar" id="registro" name="registro">
 
 </form>
 

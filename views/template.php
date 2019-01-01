@@ -58,6 +58,12 @@
 			width:95%;
 			margin:5px;
 		}
+		
+		section form input#usuarioRegistro{
+			
+			text-transform: capitalize;
+			
+		}
 
 		section form input[type="submit"]{
 			position:relative;
