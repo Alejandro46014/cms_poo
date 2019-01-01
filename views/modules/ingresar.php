@@ -1,10 +1,12 @@
 <h1>INGRESAR</h1>
 
-	<form method="post">
+	<form method="post" onSubmit="return validarIngreso()">
 		
-		<input type="text" placeholder="Usuario" name="usuarioIngreso" required>
-
-		<input type="password" placeholder="Contraseña" name="passwordIngreso" required>
+		<label for="usuarioIngreso">Nombre usuario</label>
+		<input type="text" placeholder="Usuario" name="usuarioIngreso" id="usuarioIngreso" >
+		
+		<label for="passwordIngreso">Contraseña</label>
+		<input type="password" placeholder="Contraseña" name="passwordIngreso" id="passwordIngreso" >
 
 		<input type="submit" value="Enviar">
 

@@ -10,7 +10,7 @@
 	<label for="emailRegistro">Correo electrónico</label>
 	<input type="email" placeholder="Escriba su correo electrónico" name="emailRegistro" id="emailRegistro" required>
 	
-	<p class="terminos"><input type="checkbox" id="terminos"/><a href="#">Acepta terminos y condiciones</a></p>
+	<p class="terminos"><input type="checkbox" id="terminos"><a href="#">Acepta terminos y condiciones</a></p>
 
 	<input type="submit" value="Enviar" id="registro" name="registro">
 

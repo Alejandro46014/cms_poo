@@ -59,6 +59,12 @@ nav{
 			text-transform: capitalize;
 			
 		}
+
+		section form input#usuarioIngreso{
+			
+			text-transform: capitalize;
+			
+		}
 		
 		.terminos{
 			text-align: center;
@@ -68,6 +74,12 @@ nav{
 			position:relative;
 			margin:20px auto;
 			left:4.5%;
+
+		}
+
+		section form spam{
+			
+			color: #F90005;
 
 		}
 

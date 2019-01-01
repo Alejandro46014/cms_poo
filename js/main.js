@@ -20,7 +20,7 @@ function validarRegistro(){
 
 
 
-	var terminos = document.querySelector("#registro").checked;
+	var terminos = document.querySelector("#terminos").checked;
 
 
 
@@ -42,7 +42,7 @@ function validarRegistro(){
 
 
 
-			document.querySelector("label[for='usuarioRegistro']").innerHTML += "<br>Escriba por favor menos de 10 caracteres.";
+			document.querySelector("label[for='usuarioRegistro']").innerHTML += "<br><spam>Escriba por favor menos de 10 caracteres.</spam>";
 
 
 
@@ -56,7 +56,7 @@ function validarRegistro(){
 
 
 
-			document.querySelector("label[for='usuarioRegistro']").innerHTML += "<br>No escriba caracteres especiales.";
+			document.querySelector("label[for='usuarioRegistro']").innerHTML += "<br><spam>No escriba caracteres especiales.</spam>";
 
 
 
@@ -90,7 +90,7 @@ function validarRegistro(){
 
 
 
-			document.querySelector("label[for='passwordRegistro']").innerHTML += "<br>Escriba por favor un mínimo de 8 caracteres.";
+			document.querySelector("label[for='passwordRegistro']").innerHTML += "<br><spam>Escriba por favor un mínimo de 8 caracteres.</spam>";
 
 
 
@@ -104,7 +104,7 @@ function validarRegistro(){
 
 
 
-			document.querySelector("label[for='usuarioRegistro']").innerHTML += "<br>No escriba caracteres especiales.";
+			document.querySelector("label[for='usuarioRegistro']").innerHTML += "<br><spam>No escriba caracteres especiales.</spam>";
 
 
 
@@ -136,7 +136,7 @@ function validarRegistro(){
 
 
 
-			document.querySelector("label[for='emailRegistro']").innerHTML += "<br>Escriba correctamente el Email.";
+			document.querySelector("label[for='emailRegistro']").innerHTML += "<br><spam>Escriba correctamente el Email.</spam>";
 
 
 
@@ -156,11 +156,11 @@ function validarRegistro(){
 
 
 
-	if(!registro){
+	if(!terminos){
 
 
 
-		document.querySelector("form").innerHTML += "<br>No se logró el registro, acepte términos y condiciones!.";
+		document.querySelector("form").innerHTML += "<br><spam>No se logró el registro, acepte términos y condiciones!.</spam>";
 
 		document.querySelector("#usuarioRegistro").value = usuario;	
 
@@ -183,4 +183,43 @@ return true;
 }
 
 /*=====  FIN VALIDAR REGISTRO  ======*/
+
+
+/*=============================================
+
+VALIDAR INGRESO
+
+=============================================*/
+
+function validarIngreso(){
+	
+	var usuario = document.querySelector("#usuarioIngreso").value;	
+
+
+
+	var password = document.querySelector("#passwordIngreso").value;
+	
+	if(usuario === ""){
+		
+		document.querySelector("label[for='usuarioIngreso']").innerHTML += "<br><spam>El campo nombre usuario no puede estar vacío.</spam>";
+
+
+
+			return false;
+	}
+	
+	if(password === ""){
+		
+		document.querySelector("label[for='passwordIngreso']").innerHTML += "<br><spam>El campo contraseña no puede estar vacío</spam>.";
+
+
+
+			return false;
+	}
+	
+	return true;
+}
+
+
+/*=====  FIN VALIDAR INGRESO  ======*/
 
