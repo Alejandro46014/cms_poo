@@ -105,7 +105,7 @@ class MvcController{
 
 
 
-				header("location:index.php?action=ok");
+				header("location:ok");
 
 
 
@@ -193,7 +193,7 @@ class MvcController{
 				
 				$respuestaActualizarIntentos= Datos::intentosUsuarioModel($datosController,"usuarios");
 
-				header("location:index.php?action=fallo");
+				header("location:fallo");
 
 
 
@@ -206,7 +206,7 @@ class MvcController{
 				
 				$respuestaActualizarIntentos= Datos::intentosUsuarioModel($datosController,"usuarios");
 
-				header("location:index.php?action=fallo3intentos");
+				header("location:fallo3intentos");
 				}
 
 			}
@@ -347,7 +347,7 @@ class MvcController{
 
 
 
-				header("location:index.php?action=cambio");
+				header("location:cambio");
 
 
 
@@ -399,7 +399,7 @@ class MvcController{
 
 
 
-				header("location:index.php?action=usuarios");
+				header("location:usuarios");
 
 			
 

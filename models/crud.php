@@ -8,7 +8,7 @@ class Datos extends Conexion{
 
 	#REGISTRO DE USUARIOS
 	#-------------------------------------
-	public function registroUsuarioModel($datosModel, $tabla){
+	public static function registroUsuarioModel($datosModel, $tabla){
 
 		#prepare() Prepara una sentencia SQL para ser ejecutada por el método PDOStatement::execute(). La sentencia SQL puede contener cero o más marcadores de parámetros con nombre (:name) o signos de interrogación (?) por los cuales los valores reales serán sustituidos cuando la sentencia sea ejecutada. Ayuda a prevenir inyecciones SQL eliminando la necesidad de entrecomillar manualmente los parámetros.
 
@@ -38,7 +38,7 @@ class Datos extends Conexion{
 
 	#INGRESO USUARIO
 	#-------------------------------------
-	public function ingresoUsuarioModel($datosModel, $tabla){
+	public static function ingresoUsuarioModel($datosModel, $tabla){
 
 		$stmt = Conexion::conectar()->prepare("SELECT usuario, password,intentos FROM $tabla WHERE usuario = :usuario");	
 		$stmt->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
@@ -57,7 +57,7 @@ class Datos extends Conexion{
 
 
 
-	public function intentosUsuarioModel($datosModel, $tabla){
+	public static function intentosUsuarioModel($datosModel, $tabla){
 
 
 
@@ -100,7 +100,7 @@ class Datos extends Conexion{
 	#VISTA USUARIOS
 	#-------------------------------------
 
-	public function vistaUsuariosModel($tabla){
+	public static function vistaUsuariosModel($tabla){
 
 		$stmt = Conexion::conectar()->prepare("SELECT id, usuario, password, email FROM $tabla");	
 		$stmt->execute();
@@ -115,7 +115,7 @@ class Datos extends Conexion{
 	#EDITAR USUARIO
 	#-------------------------------------
 
-	public function editarUsuarioModel($datosModel, $tabla){
+	public static function editarUsuarioModel($datosModel, $tabla){
 
 		$stmt = Conexion::conectar()->prepare("SELECT id, usuario, password, email FROM $tabla WHERE id = :id");
 		$stmt->bindParam(":id", $datosModel, PDO::PARAM_INT);	
@@ -130,7 +130,7 @@ class Datos extends Conexion{
 	#ACTUALIZAR USUARIO
 	#-------------------------------------
 
-	public function actualizarUsuarioModel($datosModel, $tabla){
+	public static function actualizarUsuarioModel($datosModel, $tabla){
 
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET usuario = :usuario, password = :password, email = :email WHERE id = :id");
 
@@ -158,7 +158,7 @@ class Datos extends Conexion{
 
 	#BORRAR USUARIO
 	#------------------------------------
-	public function borrarUsuarioModel($datosModel, $tabla){
+	public static function borrarUsuarioModel($datosModel, $tabla){
 
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 		$stmt->bindParam(":id", $datosModel, PDO::PARAM_INT);
