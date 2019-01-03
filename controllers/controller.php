@@ -177,7 +177,7 @@ class MvcController{
 
 
 
-				header("location:index.php?action=usuarios");
+				header("location:usuarios");
 
 
 
