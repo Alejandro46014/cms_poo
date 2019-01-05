@@ -3,27 +3,34 @@
 VALIDAR REGISTRO
 
 =============================================*/
-
 $("#usuarioRegistro").change(function(){
 	
-	var usuario=$("usuarioRegistro").val();
+	var usuario=$("#usuarioRegistro").val();
 	
 	var datos= new FormData();
 	datos.append("validarUsuario",usuario);
-	
 	
 	$.ajax({
 		
 		url:"views/modules/ajax.php",
 		method:"POST",
-		data:datos
+		data:datos,
+		cache:false,
+		contentType: false,
+		processData: false,
+		success:function(respuesta){
+			
+			console.log(respuesta);
+		}
 		
 	});
 	
 });
 
 
-/* VALIDAR PASSWORD */
+
+/*=====  FIN VALIDAR REGISTRO  ======*/
+
 
 /*=============================================
 

@@ -1,10 +1,22 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Documento sin título</title>
-</head>
+<?php
 
-<body>
-</body>
-</html>
+require_once("../../controllers/controller.php");
+require_once("../../models/crud.php");
+
+class Ajax{
+	
+	public $validarUsuario;
+	
+	public function validarUsuarioAjax(){
+		
+		$datos=$this->validarUsuario;
+		
+		#$respuesta=MvcController::validarUsuarioController($datos);
+		
+		echo($datos);
+	}
+}
+
+$a=new Ajax();
+$a->validarUsuario=$_POST['validarUsuario'];
+$a->validarUsuarioAjax();
