@@ -25,6 +25,7 @@ $mvc -> enlacesPaginasController();
 </section>
 	
 	<script src="js/main.js"></script>
+	<script src="js/jquery-3.0.0.min.js"></script>
 	
 </body>
 

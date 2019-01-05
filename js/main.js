@@ -4,6 +4,33 @@ VALIDAR REGISTRO
 
 =============================================*/
 
+$("#usuarioRegistro").change(function(){
+	
+	var usuario=$("usuarioRegistro").val();
+	
+	var datos= new FormData();
+	datos.append("validarUsuario",usuario);
+	
+	
+	$.ajax({
+		
+		url:"views/modules/ajax.php",
+		method:"POST",
+		data:datos
+		
+	});
+	
+});
+
+
+/* VALIDAR PASSWORD */
+
+/*=============================================
+
+VALIDAR REGISTRO
+
+=============================================*/
+
 function validarRegistro(){
 
 
